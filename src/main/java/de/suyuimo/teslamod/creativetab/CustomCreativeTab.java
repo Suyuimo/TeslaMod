@@ -8,7 +8,7 @@ public class CustomCreativeTab extends CreativeTabs
 {
     public CustomCreativeTab()
     {
-        super("Tesla");
+        super("tesla");
     }
 
     @Override
