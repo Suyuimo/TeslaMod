@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "teslamod",
+  "name": "Tesla Mod",
+  "description": "Fügt Teslas in Minecraft dazu",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/Suyuimo/TeslaMod",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Sven Weinschenk, ElGiaf https://github.com/ElGiaf"],
+  "credits": "Credits gehen an ElGiaf fürs Modelieren und Texturen Design -> https://github.com/ElGiaf",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
