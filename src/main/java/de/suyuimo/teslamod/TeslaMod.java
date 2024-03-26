@@ -1,5 +1,6 @@
 package de.suyuimo.teslamod;
 
+import de.suyuimo.teslamod.blocks.ModelYBlock;
 import de.suyuimo.teslamod.client.renderer.entity.RenderModelY;
 import de.suyuimo.teslamod.entitys.ModelY;
 import net.minecraft.block.Block;
@@ -22,7 +23,9 @@ public class TeslaMod {
     public static final String VERSION = "1.0";
 
     // Define the custom block
-    public static Block customBlock;
+    public static Block ModelYBlock;
+
+
     @Mod.Instance
     public static TeslaMod instance;
 
@@ -31,11 +34,11 @@ public class TeslaMod {
        //  Entity-Registrierung
         EntityRegistry.registerModEntity(new ResourceLocation("teslamod:modely"), ModelY.class, "modely", 1, TeslaMod.instance, 80, 3, true);
 
-        // Renderer-Registrierung (nur auf dem Client)
-     //   if (event.getSide() == Side.CLIENT) {
-      //      RenderingRegistry.registerEntityRenderingHandler(ModelY.class, RenderModelY::new);
+       //  Renderer-Registrierung (nur auf dem Client)
+        if (event.getSide() == Side.CLIENT) {
+            RenderingRegistry.registerEntityRenderingHandler(ModelY.class, RenderModelY::new);
 
-    //    }
+        }
     }
 
         @EventHandler
