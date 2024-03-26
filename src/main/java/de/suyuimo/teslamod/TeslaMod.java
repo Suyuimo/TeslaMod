@@ -1,55 +1,45 @@
 package de.suyuimo.teslamod;
 
-import de.suyuimo.teslamod.creativetab.CustomCreativeTab;
-import de.suyuimo.teslamod.proxy.CommonProxy;
-import de.suyuimo.teslamod.util.handlers.RegistryHandler;
+import de.suyuimo.teslamod.client.renderer.entity.RenderModelY;
+import de.suyuimo.teslamod.entitys.ModelY;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
-public class TeslaMod
-{
+@Mod(modid = TeslaMod.MODID, version = TeslaMod.VERSION)
+public class TeslaMod {
+    public static final String MODID = "teslamod";
+    public static final String NAME = "Tesla Mod";
+    public static final String VERSION = "1.0";
 
-
-    private static Logger logger;
-
+    // Define the custom block
+    public static Block customBlock;
     @Mod.Instance
     public static TeslaMod instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER)
-    public static CommonProxy proxy;
-
-    public static final CreativeTabs TESLA = new CustomCreativeTab();
-
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-        RegistryHandler.preInitRegistries(event);
-        logger = event.getModLog();
+    public void preInit(FMLPreInitializationEvent event) {
+       //  Entity-Registrierung
+        EntityRegistry.registerModEntity(new ResourceLocation("teslamod:modely"), ModelY.class, "modely", 1, TeslaMod.instance, 80, 3, true);
+
+        // Renderer-Registrierung (nur auf dem Client)
+     //   if (event.getSide() == Side.CLIENT) {
+      //      RenderingRegistry.registerEntityRenderingHandler(ModelY.class, RenderModelY::new);
+
+    //    }
     }
 
-    @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-        RegistryHandler.initRegistries(event);
-    }
-    @EventHandler
-    public static void postInit(FMLPostInitializationEvent event)
-    {
-        RegistryHandler.postInitRegistries(event);
-    }
+        @EventHandler
+        public void init (FMLInitializationEvent event){
 
-    @EventHandler
-    public static void serverInit(FMLServerStartingEvent event)
-    {
-        RegistryHandler.serverRegistries(event);
+        }
     }
-}
