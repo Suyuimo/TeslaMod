@@ -5,7 +5,6 @@ package de.suyuimo.teslamod.client.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import de.suyuimo.teslamod.TeslaMod;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,9 +13,11 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
+
+
 public class ModelYEntityModel<T extends Entity> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(TeslaMod.MODID, "modelyentity_converted"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "teslamodely_converted"), "main");
     private final ModelPart bone;
 
     public ModelYEntityModel(ModelPart root) {
@@ -27,19 +28,20 @@ public class ModelYEntityModel<T extends Entity> extends EntityModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(124, 27).mirror().addBox(-18.0F, -11.0F, -4.0F, 20.0F, 9.0F, 23.0F, new CubeDeformation(0.0F)).mirror(false)
-                .texOffs(12, 0).mirror().addBox(-18.0F, -11.0F, 19.0F, 20.0F, 9.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false)
-                .texOffs(0, 66).addBox(-18.0F, -8.0F, -16.0F, 20.0F, 6.0F, 12.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 2).addBox(-17.0F, -17.0F, 7.0F, 18.0F, 7.0F, 12.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 89).addBox(-1.0F, -7.0F, -11.0F, 4.0F, 7.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 89).addBox(-19.0F, -7.0F, -11.0F, 4.0F, 7.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 89).addBox(-1.0F, -7.0F, 20.0F, 4.0F, 7.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 89).addBox(-19.0F, -7.0F, 20.0F, 4.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, 24.0F, -8.0F));
+        PartDefinition bone = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(0, 64).addBox(-3.0F, -12.0F, -6.0F, 22.0F, 10.0F, 26.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 42).addBox(-3.0F, -12.0F, 20.0F, 22.0F, 10.0F, 12.0F, new CubeDeformation(0.0F))
+                .texOffs(60, 88).mirror().addBox(-3.0F, -10.0F, -17.0F, 22.0F, 8.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(64, 32).mirror().addBox(-2.0F, -19.0F, 7.0F, 20.0F, 8.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(0, 112).mirror().addBox(-4.0F, -8.0F, -11.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(0, 112).mirror().addBox(14.0F, -8.0F, -11.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(0, 112).mirror().addBox(-4.0F, -8.0F, 20.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(0, 112).mirror().addBox(14.0F, -8.0F, 20.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, 5.0F, -8.0F, 0.0F, 0.0F, -3.1416F));
 
-        PartDefinition haube_r1 = bone.addOrReplaceChild("haube_r1", CubeListBuilder.create().texOffs(74, 73).addBox(-18.0F, -14.0F, -12.0F, 20.0F, 7.0F, 13.0F, new CubeDeformation(0.0F))
-                .texOffs(36, 0).addBox(-17.0F, -13.0F, -4.0F, 18.0F, 7.0F, 17.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3927F, 0.0F, 0.0F));
+        PartDefinition haube_r1 = bone.addOrReplaceChild("haube_r1", CubeListBuilder.create().texOffs(28, 108).mirror().addBox(-3.0F, -16.0F, -12.0F, 22.0F, 8.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3927F, 0.0F, 0.0F));
 
-        PartDefinition backwindow_r1 = bone.addOrReplaceChild("backwindow_r1", CubeListBuilder.create().texOffs(20, 38).mirror().addBox(-17.0F, -23.0F, 11.0F, 18.0F, 7.0F, 14.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.3927F, 0.0F, 0.0F));
+        PartDefinition backwindow_r1 = bone.addOrReplaceChild("backwindow_r1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-2.0F, -25.0F, 10.0F, 20.0F, 8.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.3927F, 0.0F, 0.0F));
+
+        PartDefinition windscrean_r1 = bone.addOrReplaceChild("windscrean_r1", CubeListBuilder.create().texOffs(52, 6).mirror().addBox(-2.0F, 7.0F, -14.0F, 20.0F, 8.0F, 18.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -2.7489F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 128, 128);
     }

@@ -67,6 +67,7 @@ public class TeslaMod {
             event.accept(BlockManager.DOOR);
             event.accept(BlockManager.MODEL_Y_BLOCK);
             event.accept(BlockManager.SUPERCHARGER);
+            event.accept(ItemManager.CARKEY);
     }
 
     @Mod.EventBusSubscriber(modid = TeslaMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

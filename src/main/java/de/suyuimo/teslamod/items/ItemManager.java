@@ -23,7 +23,8 @@ public class ItemManager {
     public static final RegistryObject<Item> CHARGINGPORT = ITEMS.register("chargingport",
             () -> new Item(new Item.Properties()));
 
-
+    public static final RegistryObject<Item> CARKEY = ITEMS.register("carkey",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
