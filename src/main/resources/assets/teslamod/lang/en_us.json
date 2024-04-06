@@ -1,5 +1,11 @@
 {
-  "item.teslamod.wheel": "wheel",
+  "item.teslamod.wheel": "Wheel",
+  "item.teslamod.door": "Door",
+  "item.teslamod.electricengine": "Electric Engine",
+  "item.teslamod.body": "Body",
+  "item.teslamod.chargingport": "Charging Port",
+  "item.teslamod.modelyblock": "Model Y Block",
+  "item.teslamod.supercharger": "Supercharger",
 
   "itemGroup.teslatab": "Tesla"
 }

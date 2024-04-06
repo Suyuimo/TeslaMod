@@ -1,5 +1,11 @@
 {
   "item.teslamod.wheel": "Rad",
+  "block.teslamod.door": "Tür",
+  "item.teslamod.electricengine": "Elektro Motor",
+  "item.teslamod.body": "Karosserie",
+  "item.teslamod.chargingport": "Ladeanschluss",
+  "block.teslamod.modelyblock": "Model Y Block",
+  "block.teslamod.supercharger": "Supercharger",
 
   "itemGroup.teslatab": "Tesla"
 }

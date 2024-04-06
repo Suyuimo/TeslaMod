@@ -29,7 +29,7 @@ public class BlockManager {
     public static final RegistryObject<Block> SUPERCHARGER = registerBlock("supercharger",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    public static final RegistryObject<Block> TUER = registerBlock("tuer",
+    public static final RegistryObject<Block> DOOR = registerBlock("door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String blockId, Supplier<T> block) {

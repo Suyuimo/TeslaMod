@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wdw",
+    "ceg",
+    "wbw"
+  ],
+  "key": {
+    "w": {
+      "item": "teslamod:wheel"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "c": {
+      "item": "teslamod:chargingport"
+    },
+    "e": {
+      "item": "teslamod:electricengine"
+    },
+    "b": {
+      "item": "teslamod:body"
+    },
+    "d": {
+      "item": "teslamod:door"
+    }
+  },
+  "result": {
+    "item": "teslamod:modelyblock",
+    "count": 1
+  }
+}

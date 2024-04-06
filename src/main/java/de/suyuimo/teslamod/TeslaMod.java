@@ -61,6 +61,12 @@ public class TeslaMod {
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(ItemManager.WHEEL);
+            event.accept(ItemManager.CHARGINGPORT);
+            event.accept(ItemManager.BODY);
+            event.accept(ItemManager.ELECTRICENGINE);
+            event.accept(BlockManager.DOOR);
+            event.accept(BlockManager.MODEL_Y_BLOCK);
+            event.accept(BlockManager.SUPERCHARGER);
     }
 
     @Mod.EventBusSubscriber(modid = TeslaMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
