@@ -11,7 +11,7 @@ public class ItemManager {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TeslaMod.MODID);
 
     // Items erstellen
-    public static final RegistryObject<Item> RAD = ITEMS.register("rad",
+    public static final RegistryObject<Item> WHEEL = ITEMS.register("wheel",
             () -> new Item(new Item.Properties().fireResistant()));
 
     public static void register(IEventBus eventBus) {

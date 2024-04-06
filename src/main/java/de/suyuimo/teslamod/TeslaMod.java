@@ -1,11 +1,11 @@
 package de.suyuimo.teslamod;
 
 import com.mojang.logging.LogUtils;
+import de.suyuimo.teslamod.blocks.BlockManager;
 import de.suyuimo.teslamod.client.models.ModelYEntityModel;
 import de.suyuimo.teslamod.client.renderers.ModelYRenderer;
 import de.suyuimo.teslamod.entitys.EntityManager;
 import de.suyuimo.teslamod.items.ItemManager;
-import de.suyuimo.teslamod.client.renderers.ModelYRendererTest;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
@@ -37,9 +37,9 @@ public class TeslaMod {
 
     public static final RegistryObject<CreativeModeTab> TESLA_TAB = CREATIVE_MODE_TABS.register("teslatab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> ItemManager.RAD.get().getDefaultInstance())
+            .icon(() -> ItemManager.WHEEL.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ItemManager.RAD.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(ItemManager.WHEEL.get());
             }).build());
 
 
@@ -50,6 +50,7 @@ public class TeslaMod {
         modEventBus.addListener(this::addCreative);
         ItemManager.register(modEventBus);
         EntityManager.register(modEventBus);
+        BlockManager.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -59,7 +60,7 @@ public class TeslaMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(ItemManager.RAD);
+            event.accept(ItemManager.WHEEL);
     }
 
     @Mod.EventBusSubscriber(modid = TeslaMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -67,7 +68,7 @@ public class TeslaMod {
 
         @SubscribeEvent
         public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            //event.registerEntityRenderer(EntityManager.MODELY.get(), ModelYRendererTest::new);
+            //event.registerEntityRenderer(EntityManager.MODELY.get(), ModelYRendererTest::new);    // Rendert das Entity als Boot
         }
 
         @SubscribeEvent
