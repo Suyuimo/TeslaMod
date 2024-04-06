@@ -16,7 +16,7 @@ public class EntityManager {
     public static final RegistryObject<EntityType<ModelYEntity>> MODELY = ENTITIES.register("modely",
             () -> EntityType.Builder.of(ModelYEntity::new, MobCategory.MISC)
                     .sized(1.375F, 0.5625F) // Größe ändern, falls nötig
-                    .build(new ResourceLocation(TeslaMod.MODID, "modely").toString()));
+                    .build("modely"));
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
