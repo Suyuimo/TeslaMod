@@ -12,7 +12,15 @@ public class ItemManager {
 
     // Items erstellen
     public static final RegistryObject<Item> WHEEL = ITEMS.register("wheel",
-            () -> new Item(new Item.Properties().fireResistant()));
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ELECTRICENGINE = ITEMS.register("electricengine",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> BODY = ITEMS.register("body",
+            () -> new Item(new Item.Properties()));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

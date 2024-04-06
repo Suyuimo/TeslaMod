@@ -25,7 +25,8 @@ public class ModelYBlock extends Block {
 
             // Spawne das Entity
             ModelYEntity modelYEntity = new ModelYEntity(EntityManager.MODELY.get(), world);
-            modelYEntity.setPos(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
+            modelYEntity.setPos(pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1);
+            modelYEntity.setYRot(player.getYRot()); // Richtung anpassen
             world.addFreshEntity(modelYEntity);
 
             return InteractionResult.CONSUME;
