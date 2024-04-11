@@ -32,7 +32,7 @@ public class ModelYRenderer extends EntityRenderer<ModelYEntity> {
         poseStack.popPose();
         */
         poseStack.pushPose();
-        poseStack.translate(0.0D, 0.5D, 0.0D);
+        poseStack.translate(0.0D, 0.0D, 0.0D);
         poseStack.mulPose(Axis.YP.rotationDegrees(-entity.getYRot()));
         model.renderToBuffer(poseStack, buffer.getBuffer(RenderType.entitySolid(getTextureLocation(entity))), packedLight, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
         poseStack.popPose();

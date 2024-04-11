@@ -1,5 +1,6 @@
 package de.suyuimo.teslamod.entitys;
 
+import com.mojang.math.Axis;
 import de.suyuimo.teslamod.items.ItemManager;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -23,6 +24,10 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
     public ModelYEntity(EntityType<? extends Boat> type, Level world) {
         super(type, world);
         this.energyStorage = new EnergyStorage(1000);
+    }
+
+    public void boostSpeed() {
+        this.setDeltaMovement(this.getDeltaMovement().multiply(getDeltaMovement().x + 1.5, getDeltaMovement().y, getDeltaMovement().z + 1.5));
     }
 
     @Override
@@ -66,5 +71,6 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
     public boolean canReceive() {
         return true;
     }
+
 
 }
