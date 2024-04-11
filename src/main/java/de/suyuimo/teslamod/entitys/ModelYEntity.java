@@ -15,7 +15,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public class ModelYEntity extends Boat implements IEnergyStorage, ICapabilityProvider {
+public class ModelYEntity extends Boat implements IEnergyStorage {
 
     private final EnergyStorage energyStorage;
     private Level level;
@@ -23,21 +23,16 @@ public class ModelYEntity extends Boat implements IEnergyStorage, ICapabilityPro
     public ModelYEntity(EntityType<? extends Boat> type, Level world) {
         super(type, world);
         this.energyStorage = new EnergyStorage(1000);
-        // Weitere Initialisierungen hier
     }
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         if (itemStack.getItem() == ItemManager.CARKEY.get()) {
-            // Logik zum Einsteigen ins Fahrzeug, wenn der Spieler den Schlüssel hat
-            // Beispiel:
-            if (getEnergyStored() > 0) {
-                // Logik zur Bewegung des Entitys
-                // Zum Beispiel, verbrauche Energie bei Bewegung:
-                this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
+        //    if (getEnergyStored() > 0) {
+         //       this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
                 player.startRiding(this);
-            }
+       //     }
         }
         return InteractionResult.PASS;
     }

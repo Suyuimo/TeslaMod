@@ -1,8 +1,10 @@
 package de.suyuimo.teslamod.client.renderers;
 
+import com.mojang.math.Axis;
 import de.suyuimo.teslamod.TeslaMod;
 import de.suyuimo.teslamod.entitys.ModelYEntity;
 import de.suyuimo.teslamod.client.models.ModelYEntityModel;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -22,12 +24,19 @@ public class ModelYRenderer extends EntityRenderer<ModelYEntity> {
     }
 
     @Override
-    public void render(ModelYEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        poseStack.pushPose();
+    public void render(ModelYEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+       /* poseStack.pushPose();
         // Hier würdest du die Skalierung und Rotation anpassen, um dein Modell korrekt zu positionieren
         model.renderToBuffer(poseStack, bufferSource.getBuffer(model.renderType(getTextureLocation(entity))), packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
        // poseStack.mulPose(Axis.YP.rotationDegrees(-entity.getYRot()));
         poseStack.popPose();
+        */
+        poseStack.pushPose();
+        poseStack.translate(0.0D, 0.5D, 0.0D);
+        poseStack.mulPose(Axis.YP.rotationDegrees(-entity.getYRot()));
+        model.renderToBuffer(poseStack, buffer.getBuffer(RenderType.entitySolid(getTextureLocation(entity))), packedLight, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
+        poseStack.popPose();
+        super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 
     @Override
