@@ -20,7 +20,11 @@ public class CheckKeys {
         if (KeyBindings.BOOST_KEY.isDown()) {
             Minecraft mc = Minecraft.getInstance();
             if (mc.player != null && mc.player.getVehicle() instanceof ModelYEntity) {
-                ((ModelYEntity) mc.player.getVehicle()).boostSpeed();
+                if (((ModelYEntity) mc.player.getVehicle()).getBoosting() == false) {
+                    ((ModelYEntity) mc.player.getVehicle()).setBoosting(true);
+                } else {
+                    ((ModelYEntity) mc.player.getVehicle()).setBoosting(false);
+                }
             }
         }
     }

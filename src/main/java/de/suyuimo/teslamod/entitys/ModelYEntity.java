@@ -20,14 +20,33 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
 
     private final EnergyStorage energyStorage;
     private Level level;
+    private boolean isBoosting = false;
 
     public ModelYEntity(EntityType<? extends Boat> type, Level world) {
         super(type, world);
         this.energyStorage = new EnergyStorage(1000);
     }
 
-    public void boostSpeed() {
-        this.setDeltaMovement(this.getDeltaMovement().multiply(getDeltaMovement().x + 1.5, getDeltaMovement().y, getDeltaMovement().z + 1.5));
+    private void adjustSpeedBasedOnBoost() {
+        if (this.isBoosting) {
+            this.setDeltaMovement(this.getDeltaMovement().multiply(30.0, 1.0, 30.0));
+        } else {
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1/30.0, 1.0, 1/30.0));
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        adjustSpeedBasedOnBoost();
+    }
+
+    public void setBoosting(boolean isBoosting) {
+        this.isBoosting = isBoosting;
+    }
+
+    public boolean getBoosting() {
+        return this.isBoosting;
     }
 
     @Override
