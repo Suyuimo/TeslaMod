@@ -4,8 +4,13 @@
   "item.teslamod.electricengine": "Electric Engine",
   "item.teslamod.body": "Body",
   "item.teslamod.chargingport": "Charging Port",
-  "item.teslamod.modelyblock": "Model Y Block",
-  "item.teslamod.supercharger": "Supercharger",
+  "item.teslamod.carkey": "Car Key",
+  "block.teslamod.modelyblock": "Model Y Block",
+  "block.teslamod.supercharger": "Supercharger",
+
+  "key.teslamod.carboost": "car boost key",
+
+  "de.suyuimo.teslamod.keys": "Tesla Mod",
 
   "itemGroup.teslatab": "Tesla"
 }

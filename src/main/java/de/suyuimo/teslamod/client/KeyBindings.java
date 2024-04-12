@@ -9,8 +9,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class KeyBindings {
 
-    public static final String CATEGORY = "de.suyuimo.teslamod";
-    public static final KeyMapping BOOST_KEY = new KeyMapping("teslamod.car.boost", InputConstants.Type.KEYSYM, InputConstants.KEY_R, CATEGORY);
+    public static final String CATEGORY = "de.suyuimo.teslamod.keys";
+    public static final KeyMapping BOOST_KEY = new KeyMapping("key.teslamod.carboost", InputConstants.Type.KEYSYM, InputConstants.KEY_R, CATEGORY);
 
     @SubscribeEvent
     public static void onKeyMapping(RegisterKeyMappingsEvent event) {
