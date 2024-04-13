@@ -65,7 +65,7 @@ public class TeslaMod {
             event.accept(ItemManager.BODY);
             event.accept(ItemManager.ELECTRICENGINE);
             event.accept(BlockManager.DOOR);
-            event.accept(BlockManager.MODEL_Y_BLOCK);
+            event.accept(BlockManager.MODEL_Y_SPAWN_BLOCK);
             event.accept(BlockManager.SUPERCHARGER);
             event.accept(ItemManager.CARKEY);
     }

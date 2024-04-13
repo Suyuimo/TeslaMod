@@ -5,7 +5,7 @@
   "item.teslamod.body": "Body",
   "item.teslamod.chargingport": "Charging Port",
   "item.teslamod.carkey": "Car Key",
-  "block.teslamod.modelyblock": "Model Y Block",
+  "block.teslamod.modelyspawnblock": "Model Y Block",
   "block.teslamod.supercharger": "Supercharger",
 
   "key.teslamod.carboost": "car boost key",

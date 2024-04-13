@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "up": "teslamod:block/modelyspawnblock/top",
+    "down": "teslamod:block/modelyspawnblock/bottom",
+    "north": "teslamod:block/modelyspawnblock/side",
+    "south": "teslamod:block/modelyspawnblock/side",
+    "east": "teslamod:block/modelyspawnblock/side",
+    "west": "teslamod:block/modelyspawnblock/side"
+  }
+}

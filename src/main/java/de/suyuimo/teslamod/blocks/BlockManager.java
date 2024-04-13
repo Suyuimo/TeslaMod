@@ -3,14 +3,13 @@ package de.suyuimo.teslamod.blocks;
 
 import de.suyuimo.teslamod.TeslaMod;
 import de.suyuimo.teslamod.items.ItemManager;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.world.effect.MobEffects;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,8 +22,8 @@ public class BlockManager {
 
     // Blocks erstellen
     // Model Y Block
-    public static final RegistryObject<Block> MODEL_Y_BLOCK = registerBlock("modelyblock",
-            () -> new ModelYBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> MODEL_Y_SPAWN_BLOCK = registerBlock("modelyspawnblock",
+            () -> new ModelYSpawnBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<Block> SUPERCHARGER = registerBlock("supercharger",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));

@@ -18,6 +18,10 @@ public class EntityManager {
                 //    .sized(1.375F, 0.5625F) // Größe ändern, falls nötig
                     .build("modely"));
 
+    public static final RegistryObject<EntityType<ModelYEntityTest>> MODELYTEST = ENTITIES.register("modelytest",
+            () -> EntityType.Builder.of(ModelYEntityTest::new, MobCategory.MISC)
+                    .build("modelytest"));
+
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
