@@ -35,7 +35,7 @@ public class ModelYEntityModel<T extends Entity> extends EntityModel<T> {
                 .texOffs(0, 112).mirror().addBox(-4.0F, -8.0F, -11.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(0, 112).mirror().addBox(14.0F, -8.0F, -11.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(0, 112).mirror().addBox(-4.0F, -8.0F, 20.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
-                .texOffs(0, 112).mirror().addBox(14.0F, -8.0F, 20.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, 5.0F, -8.0F, 0.0F, 0.0F, -3.1416F));
+                .texOffs(0, 112).mirror().addBox(14.0F, -8.0F, 20.0F, 6.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-8.0F, 5.0F, 7.0F, -3.1416F, 0.0F, 0.0F));
 
         PartDefinition haube_r1 = bone.addOrReplaceChild("haube_r1", CubeListBuilder.create().texOffs(28, 108).mirror().addBox(-3.0F, -16.0F, -12.0F, 22.0F, 8.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3927F, 0.0F, 0.0F));
 

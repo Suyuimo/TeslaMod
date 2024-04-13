@@ -21,6 +21,7 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
     private final EnergyStorage energyStorage;
     private Level level;
     private boolean isBoosting = false;
+    private double boost = 1.7;
 
     public ModelYEntity(EntityType<? extends Boat> type, Level world) {
         super(type, world);
@@ -29,11 +30,16 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
 
     private void adjustSpeedBasedOnBoost() {
         if (this.isBoosting) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(30.0, 1.0, 30.0));
+            if (this.getDeltaMovement().x < boost && this.getDeltaMovement().z < boost) {
+                this.setDeltaMovement(this.getDeltaMovement().x * boost,0,this.getDeltaMovement().z * boost);
+            }
+
+            isBoosting = false;
         } else {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(1/30.0, 1.0, 1/30.0));
+            this.setDeltaMovement(0, 0, 0);
         }
     }
+
 
     @Override
     public void tick() {
@@ -51,6 +57,18 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
+
+        ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
+
+
+
+        if(player.getInventory().contains(carkeyininventory) == true) {
+
+            player.startRiding(this);
+        }
+
+        /*
+        //old Code
         ItemStack itemStack = player.getItemInHand(hand);
         if (itemStack.getItem() == ItemManager.CARKEY.get()) {
         //    if (getEnergyStored() > 0) {
@@ -58,6 +76,7 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
                 player.startRiding(this);
        //     }
         }
+         */
         return InteractionResult.PASS;
     }
 
