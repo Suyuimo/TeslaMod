@@ -1,25 +1,24 @@
 package de.suyuimo.teslamod.entitys;
 
-import com.mojang.math.Axis;
+import de.suyuimo.teslamod.TeslaMod;
+import de.suyuimo.teslamod.client.gui.CarEnergyGUI;
+import de.suyuimo.teslamod.items.Battery;
 import de.suyuimo.teslamod.items.ItemManager;
+import net.minecraft.client.Minecraft;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 
 public class ModelYEntity extends Boat implements IEnergyStorage {
 
     private final EnergyStorage energyStorage;
-    private Level level;
     private boolean isBoosting = false;
     private double boost = 1.7;
 
@@ -57,24 +56,39 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
+        System.out.println("Hand Max:" + this.getMaxEnergyStored() + "Aktuell:" + this.getEnergyStored());
+        if(player.isCrouching()) {
+            Minecraft.getInstance().setScreen(new CarEnergyGUI(this));
+        } else {
+            ItemStack stack = player.getItemInHand(hand);
+            if (stack.getItem() instanceof Battery) {
+                IEnergyStorage battery = (IEnergyStorage) stack.getItem();
+                if (this.getEnergyStored() < this.getMaxEnergyStored()) {
+                    int energyNeeded = this.getMaxEnergyStored() - this.getEnergyStored();
+                    System.out.println("Mit Battery Max:" + this.getMaxEnergyStored() + "Aktuell:" + this.getEnergyStored());
+                    int energyTransferred = battery.extractEnergy(energyNeeded, false);
+                    this.receiveEnergy(energyTransferred, false);
+                }
+            } else {
 
-        ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
+                // Code dass der Schlüssel iregendwo im Inventar sein darf
+                ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
 
+                if (player.getInventory().contains(carkeyininventory)) {
+                    if (getEnergyStored() > 50) {
+                    //    this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
+                        player.startRiding(this);
+                    }
+                }
+            }
 
-
-        if(player.getInventory().contains(carkeyininventory) == true) {
-
-            player.startRiding(this);
         }
 
         /*
-        //old Code
+        //Code dass der Schlüssel in der Hand gehalten werden muss
         ItemStack itemStack = player.getItemInHand(hand);
         if (itemStack.getItem() == ItemManager.CARKEY.get()) {
-        //    if (getEnergyStored() > 0) {
-         //       this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
-                player.startRiding(this);
-       //     }
+
         }
          */
         return InteractionResult.PASS;
@@ -109,6 +123,22 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
     public boolean canReceive() {
         return true;
     }
+/*
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Energy", energyStorage.getEnergyStored());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if (compound.contains("Energy", 99)) { // 99 steht für den NBT-Typ für Integer
+            energyStorage.receiveEnergy(compound.getInt("Energy"),false);
+        }
+    }
+ */
+
 
 
 }

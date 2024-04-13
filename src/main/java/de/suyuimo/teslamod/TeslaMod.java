@@ -30,6 +30,7 @@ public class TeslaMod {
 
 
     public static final String MODID = "teslamod";
+    public static final Boolean coding = true;
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     public static final ModelLayerLocation MODEL_Y_LAYER = new ModelLayerLocation(new ResourceLocation(MODID, "modely"), "main");
@@ -61,7 +62,7 @@ public class TeslaMod {
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(ItemManager.WHEEL);
-            event.accept(ItemManager.CHARGINGPORT);
+            event.accept(ItemManager.BATTERY);
             event.accept(ItemManager.BODY);
             event.accept(ItemManager.ELECTRICENGINE);
             event.accept(BlockManager.DOOR);

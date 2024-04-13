@@ -20,8 +20,8 @@ public class ItemManager {
     public static final RegistryObject<Item> BODY = ITEMS.register("body",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> CHARGINGPORT = ITEMS.register("chargingport",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BATTERY = ITEMS.register("battery",
+            () -> new Battery(new Item.Properties(),1000,100));
 
     public static final RegistryObject<Item> CARKEY = ITEMS.register("carkey",
             () -> new Item(new Item.Properties()));

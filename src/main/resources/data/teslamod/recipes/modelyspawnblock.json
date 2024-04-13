@@ -13,7 +13,7 @@
       "item": "minecraft:glass"
     },
     "c": {
-      "item": "teslamod:chargingport"
+      "item": "teslamod:battery"
     },
     "e": {
       "item": "teslamod:electricengine"
