@@ -1,12 +1,13 @@
 {
   "item.teslamod.wheel": "Wheel",
-  "item.teslamod.door": "Door",
+  "item.teslamod.battery": "Battery",
   "item.teslamod.electricengine": "Electric Engine",
   "item.teslamod.body": "Body",
   "item.teslamod.chargingport": "Charging Port",
   "item.teslamod.carkey": "Car Key",
   "block.teslamod.modelyspawnblock": "Model Y Block",
   "block.teslamod.supercharger": "Supercharger",
+  "block.teslamod.door": "Door",
 
   "key.teslamod.carboost": "car boost key",
 
