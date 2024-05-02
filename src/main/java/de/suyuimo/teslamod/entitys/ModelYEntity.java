@@ -75,10 +75,11 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
                 ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
 
                 if (player.getInventory().contains(carkeyininventory)) {
-                    if (getEnergyStored() > 50) {
-                    //    this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
-                        player.startRiding(this);
-                    }
+                    player.startRiding(this);
+         //           if (getEnergyStored() > 50) {
+         //               this.extractEnergy(10, false); // Verbraucht 50 RF pro Bewegungsaktion
+          //              player.startRiding(this);
+           //         }
                 }
             }
 

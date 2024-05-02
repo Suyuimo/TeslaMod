@@ -21,7 +21,7 @@ public class ItemManager {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> BATTERY = ITEMS.register("battery",
-            () -> new Battery(new Item.Properties(),1000,100));
+            () -> new Battery(new Item.Properties(),1000,10));
 
     public static final RegistryObject<Item> CARKEY = ITEMS.register("carkey",
             () -> new Item(new Item.Properties()));

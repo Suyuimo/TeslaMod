@@ -1,12 +1,14 @@
 {
   "item.teslamod.wheel": "Rad",
-  "block.teslamod.door": "Tür",
+  "item.teslamod.battery": "Batterie",
   "item.teslamod.electricengine": "Elektro Motor",
   "item.teslamod.body": "Karosserie",
   "item.teslamod.chargingport": "Ladeanschluss",
   "item.teslamod.carkey": "Autoschlüssel",
   "block.teslamod.modelyspawnblock": "Model Y Block",
   "block.teslamod.supercharger": "Supercharger",
+  "block.teslamod.door": "Tür",
+
 
   "key.teslamod.carboost": "Auto Beschleunigungstaste",
 
