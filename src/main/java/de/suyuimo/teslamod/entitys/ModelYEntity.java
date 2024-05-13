@@ -30,7 +30,7 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
     private void adjustSpeedBasedOnBoost() {
         if (this.isBoosting && this.energyStorage.getEnergyStored() > ENERGY_PER_TICK) {
             if (this.getDeltaMovement().x < boost && this.getDeltaMovement().z < boost) {
-                this.setDeltaMovement(this.getDeltaMovement().x * boost,0,this.getDeltaMovement().z * boost);
+                this.setDeltaMovement(this.getDeltaMovement().x * boost, 0, this.getDeltaMovement().z * boost);
                 this.energyStorage.extractEnergy(ENERGY_PER_TICK, false);
             }
 
@@ -60,16 +60,20 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
-                // Code dass der Schlüssel iregendwo im Inventar sein darf
-                ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
+        // Code dass der Schlüssel iregendwo im Inventar sein darf
+        ItemStack carkeyininventory = new ItemStack(ItemManager.CARKEY.get());
+        ItemStack itemInHand = player.getItemInHand(hand);
 
+        if (player.isCrouching()) {
+            if (itemInHand.isEmpty()) { // Der Spieler sollte nichts in der Hand halten
+                // Zeige den aktuellen Ladezustand der Batterie an
+                Component energyMessage = Component.literal("Current Energy: " + this.getEnergyStored() + " FE");
+                player.displayClientMessage(energyMessage, true);
+            } else {
                 if (player.getInventory().contains(carkeyininventory) && this.energyStorage.getEnergyStored() > ENERGY_PER_TICK) {
                     player.startRiding(this);
-                } else {
-                    player.displayClientMessage(Component.literal("Not enough energy to drive."), true);
-                }
 
-        /*
+                            /*
         //Code dass der Schlüssel in der Hand gehalten werden muss
         ItemStack itemStack = player.getItemInHand(hand);
         if (itemStack.getItem() == ItemManager.CARKEY.get()) {
@@ -77,7 +81,11 @@ public class ModelYEntity extends Boat implements IEnergyStorage {
         }
          */
 
-
+                } else {
+                    player.displayClientMessage(Component.literal("Not enough energy to drive."), true);
+                }
+            }
+        }
         return InteractionResult.PASS;
     }
 
