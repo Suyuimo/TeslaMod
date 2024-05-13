@@ -26,10 +26,10 @@ public class BlockManager {
             () -> new ModelYSpawnBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<Block> SUPERCHARGER = registerBlock("supercharger",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new SuperChargerBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<Block> DOOR = registerBlock("door",
-            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String blockId, Supplier<T> block) {
         RegistryObject<T> blockToReturn = BLOCKS.register(blockId, block);
