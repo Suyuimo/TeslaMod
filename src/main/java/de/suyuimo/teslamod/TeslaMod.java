@@ -6,6 +6,7 @@ import de.suyuimo.teslamod.client.models.ModelYEntityModel;
 import de.suyuimo.teslamod.client.renderers.ModelYRenderer;
 import de.suyuimo.teslamod.entitys.EntityManager;
 import de.suyuimo.teslamod.items.ItemManager;
+import de.suyuimo.teslamod.net.ModNetwork;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
@@ -52,6 +53,7 @@ public class TeslaMod {
         ItemManager.register(modEventBus);
         EntityManager.register(modEventBus);
         BlockManager.register(modEventBus);
+        ModNetwork.registerNetworkChannel();
 
         MinecraftForge.EVENT_BUS.register(this);
 
